@@ -39,7 +39,7 @@ var ViewModel = function() {
     var greenIcon = 'img/greenpin.png';
     var redIcon = 'img/redpin.png';
     
-    self.searchimput = ko.computed(function() {
+    self.searchImput = ko.computed(function() {
         //convert to lowercase the imput
         var searchbox = self.searchbox().toLowerCase();
         //search through all objects
@@ -115,6 +115,9 @@ var ViewModel = function() {
         bounds.extend(markers[i].position);
     }
     map.fitBounds(bounds);
+    google.maps.event.addDomListener(window, 'resize', function() {
+	map.fitBounds(bounds); // `bounds` is a `LatLngBounds` object
+	});
 
 
 	//populate infowindow
@@ -133,11 +136,11 @@ var ViewModel = function() {
             var contentInfo = '<div id="iw-container">' +
                                   '<header class="iw-title">' + '<h3>' + 'Spielplatz: ' + marker.title + '</h3>' + '</header>' +
                                   '<div id="iw-photo">' + marker.photo + '</div>' + '</div><br><a href ="' + articleUrl + '">' + articleUrl + '</a><hr>';
-        });
-	        infowindow.marker = marker;  
-            infowindow.setContent('contentInfo');
+            infowindow.setContent(contentInfo);
             //open infowindow on that marker
             infowindow.open(map, marker);
+        });
+	        infowindow.marker = marker;  
             // set icon to green when infowindow is closed
             infowindow.addListener('closeclick', function() {
                 infowindow.marker = null;
@@ -151,3 +154,4 @@ var ViewModel = function() {
 function googleError() {
     alert("Google map is not responding. Check your connection please.");
 };
+
