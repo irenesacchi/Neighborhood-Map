@@ -134,7 +134,6 @@ var ViewModel = function() {
                                   '<header class="iw-title">' + '<h3>' + 'Spielplatz: ' + marker.title + '</h3>' + '</header>' +
                                   '<div id="iw-photo">' + marker.photo + '</div>' + '</div><br><a href ="' + articleUrl + '">' + articleUrl + '</a><hr>';
         });
-        if (infowindow.marker != marker) {
 	        infowindow.marker = marker;  
             infowindow.setContent('contentInfo');
             //open infowindow on that marker
@@ -144,8 +143,6 @@ var ViewModel = function() {
                 infowindow.marker = null;
                 marker.setIcon(greenIcon);
             });
-          
-        }
     }
 
 };
