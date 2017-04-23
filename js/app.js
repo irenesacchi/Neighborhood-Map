@@ -117,11 +117,24 @@ var ViewModel = function() {
 
 	//populate infowindow
     function populateInfoWindow(marker, infowindow) {
+	    var articleUrl;
+        var wikiURL = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title ;
+        var wikiTimeout = setTimeout(function () {
+            alert("failed to load wikipedia page");
+        }, 8000);
+        $.ajax({
+            url: wikiURL,
+            dataType: "jsonp"
+        }).done(function(response) {
+            clearTimeout(wikiTimeout);
+            articleUrl = response[3][0];
+        });
         if (infowindow.marker != marker) {
 	        infowindow.marker = marker;
+	        function getWikiInfo(data) {   
             infowindow.setContent('<div id="iw-container">' +
                                   '<header class="iw-title">' + '<h3>' + 'Spielplatz: ' + marker.title + '</h3>' + '</header>' +
-                                  '<div id="iw-photo">' + marker.photo + '</div>');
+                                  '<div id="iw-photo">' + marker.photo + '</div>' + '</div><br><a href ="' + articleUrl + '">' + articleUrl + '</a><hr>');
             //open infowindow on that marker
             infowindow.open(map, marker);
             // set icon to green when infowindow is closed
@@ -129,9 +142,9 @@ var ViewModel = function() {
                 infowindow.marker = null;
                 marker.setIcon(greenIcon);
             });
+          }
         }
     }
-
 };
 
 //alert when map is not loading
