@@ -4,7 +4,7 @@ var Places = [{
     name: 'Mühlenstraße',
     city: 'Münster',
     location: {lat: 51.959286, lng: 7.620825},
-    img : '<img src="img/Mühlenstraße.jpg">'
+    img : '<img src="img/Muehlenstraße.jpg">'
 }, {
     name: 'Am Kanonengraben',
     city: 'Münster',
