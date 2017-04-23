@@ -86,20 +86,8 @@ img {
   width: 100%;
 }
 
-#weathercondition{
-	width: 50px;
-	float: right;
-	top: 40px;
-	right: 10px;
-	position: absolute;
-}
-
-#weathercondition img {
-	width: 50px;
-}
-
-#weathercondition p {
-	display: none;
+.gm-style-iw a{
+	color: #000;
 }
 
 @media only screen and (min-width:500px) {
@@ -115,27 +103,6 @@ img {
 
 h1{
 	font-size: 20px;
-}
-
-#weathercondition{
-	width: 168px;
-	float: left;
-	border: 1px solid #ffffff;
-	padding: 2px;
-	display: flex;
-	position: relative;
-	margin: 0;
-	top: 0;
-}
-
-#weathercondition img {
-	width: 50px;
-	margin: 5px;
-}
-
-#weathercondition p {
-	margin-left: 5px;
-	display: block;
 }
 
 input[type=search] {
