@@ -88,11 +88,13 @@ var ViewModel = function() {
         var position = Places[i].location;
         var title = Places[i].name;
         var photo = Places[i].img;
+        var city = Places[i].city;
         var marker = new google.maps.Marker({
             map: map,
             position: position,
             title: title,
             photo: photo,
+            city: city,
             icon: greenIcon,
             animation: google.maps.Animation.DROP,
             id: i
@@ -118,7 +120,7 @@ var ViewModel = function() {
 	//populate infowindow
     function populateInfoWindow(marker, infowindow) {
 	    var articleUrl;
-        var wikiURL = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.title ;
+        var wikiURL = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + marker.city ;
         var wikiTimeout = setTimeout(function () {
             alert("failed to load wikipedia page");
         }, 8000);
@@ -145,6 +147,7 @@ var ViewModel = function() {
           }
         }
     }
+
 };
 
 //alert when map is not loading
