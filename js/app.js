@@ -130,13 +130,14 @@ var ViewModel = function() {
         }).done(function(response) {
             clearTimeout(wikiTimeout);
             articleUrl = response[3][0];
+            contentInfo = '<div id="iw-container">' +
+                                  '<header class="iw-title">' + '<h3>' + 'Spielplatz: ' + marker.title + '</h3>' + '</header>' +
+                                  '<div id="iw-photo">' + marker.photo + '</div>' + '</div><br><a href ="' + articleUrl + '">' + articleUrl + '</a><hr>';
         });
         if (infowindow.marker != marker) {
 	        infowindow.marker = marker;
-	        function getWikiInfo(data) {   
-            infowindow.setContent('<div id="iw-container">' +
-                                  '<header class="iw-title">' + '<h3>' + 'Spielplatz: ' + marker.title + '</h3>' + '</header>' +
-                                  '<div id="iw-photo">' + marker.photo + '</div>' + '</div><br><a href ="' + articleUrl + '">' + articleUrl + '</a><hr>');
+	        function getWikiInfo(data) {  
+            infowindow.setContent('contentInfo');
             //open infowindow on that marker
             infowindow.open(map, marker);
             // set icon to green when infowindow is closed
