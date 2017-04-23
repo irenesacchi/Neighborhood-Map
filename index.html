@@ -12,36 +12,20 @@
 		        <div class="menu">
 	                <h1>Spielplätze in Münster</h1>
 	                <input type="search" placeholder="Spielplätze" data-bind="textInput: searchbox">
-	                <ul class="list" data-bind="foreach: searchimput">
+	                <ul class="list" data-bind="foreach: searchImput">
 		                <a href="#">
 	                    	<li data-bind="text: name, click: $parent.listlocationclicked"></li>
 	                    </a>
 	                </ul>
 	        	</div>
-	        	<p id="weathercondition"></p>
 	        </header>
-		    <div id="map"></div>
+		    <main id="map"></main>
 		    
    <script src="js/app.js"></script>
    <script src="js/locations.js"></script>
    <script src="js/styles.js"></script>
    <script src="js/knockout.js"></script>
    <script src="js/jquery-3.1.1.min.js"></script>
-   <script>
-		jQuery(document).ready(function($) {
-		  $.ajax({
-		  url : "http://api.wunderground.com/api/e06b0c67d7d537a9/geolookup/conditions/q/Germany/Muenster.json",
-		  dataType : "jsonp",
-		  success : function(parsed_json) {
-		  var location = parsed_json['location']['city'];
-		  var temp_c = parsed_json['current_observation']['temp_c'];
-		  var feelslike_c = parsed_json['current_observation']['feelslike_c']
-		  var icon = parsed_json['current_observation']['icon_url'];
-		  document.getElementById("weathercondition").innerHTML = '<img src="'+icon+'">' + "</br>" + "<p>" + "In " + location + "</br>" + " sind: " + temp_c + " Grad " + "</p>";
-		  }
-		  });
-		});
-	</script>
    <script async defer
         src="https://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyA4gNz-1dci6l0EU5I1jslSiN1gJ4rRvQ8&callback=initMap" onerror="googleError()">
    </script>
