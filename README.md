@@ -2,7 +2,7 @@
 
 This is a web-app created for displaying playgrounds in the center of Münster.
 
-The infowindow of the several playgrounds come with the name and the picture of the place.
+The infowindow of the several playgrounds come with the name, the picture of the place and a wiki link for the different blocks.
 
 The search input placeholder help looping and filtering through the list of places displayed. You can choose the open the infowindow through the marker or the element on the list.
 
