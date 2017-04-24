@@ -140,17 +140,16 @@ var ViewModel = function() {
             //open infowindow on that marker
             infowindow.open(map, marker);
         });
-	        infowindow.marker = marker;  
+	    infowindow.marker = marker;  
             // set icon to green when infowindow is closed
             infowindow.addListener('closeclick', function() {
                 infowindow.marker = null;
                 marker.setIcon(greenIcon);
-            });
-    }
-
-};
+            	});
+            }
+     };
 
 //alert when map is not loading
 function googleError() {
-    alert("Google map is not responding. Check your connection please.");
+	alert("Google map is not responding. Check your connection please.");
 };
